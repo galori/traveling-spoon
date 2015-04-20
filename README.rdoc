@@ -1,0 +1,27 @@
+Traveling Spoon Coding Task.
+
+
+Instructions:
+
+
+The attached file contains a mockup of a webpage and some assets. The page lets a user submit a new reservation request. We'd like you to create a working version of this page. It should submit to a backend service (either one you code or a hosted service like Firebase or Parse). In addition, you should create an admin-facing page that lists the reservations that have been submitted (but you don't need to make a detail view for each reservation). You don't need to worry about form validation or authorization to view the admin page - it can all be publicly accessible. You should use any languages or tools that you like.
+
+Please take no more than four hours to complete this task. After four hours, please send over a link to your app (ie running at Heroku or Github pages) and share the repo on Github. Please share with ngrandy and eleland. We don't expect a perfectly complete version - just make as much progress as you can.
+
+
+
+TODO:
+
+* Limit the list of countries to only the countries that Traveling Spoon has a presence in?
+
+* Authorization / Security? (Do not let users view the "Thank you" page details of other users. Currently it is based on an ID in the URL and is wide open.
+
+* Cities can be handled better.  The Cities gem includes all cities in the world and provides 15,000 cities for GB, so using that data may be unwieldy but there may better UI approaches for this
+
+* I stored the boolean fields as strings ('Yes' or 'No') for the sake of implementation speed. It allows skipping a tertiary conditional on the presentation side as well as skipping a conditional to translate it into a boolean for persistence. In a real site I would likely use a boolean.
+
+Notes:
+
+
+* I'm assuming "Additional Dates" can be a text field for this excercize. I think a good implementation for that field for a real page would be something similar to facebook's topic selectors which populate as "capsules" in a field. (as seen here: http://loopj.com/images/tokeninput-facebook-style.png)
+

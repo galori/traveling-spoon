@@ -1,0 +1,83 @@
+<%= form_for Reservation.new do |f| -%>
+
+  <ul>
+
+    <li>
+      <%= f.label :country, 'Which country are you visiting?' %>
+      <%= f.country_select :country %>
+    </li>
+
+    <li>
+      <%= f.label :city, 'Which city are you visiting?' %>
+      <%= f.text_field :city %>
+    </li>
+
+    <li>
+      <%= f.label :date, 'Date' %>
+      <%= f.text_field :date %>
+    </li>
+
+    <li>
+      <%= f.label :additional_dates, 'Additional Dates' %>
+      <%= f.text_field :additional_dates %>
+    </li>
+
+    <li>
+      <%= f.label :number_of_guests, 'Number of Guests' %>
+      <%= f.select :number_of_guests, (0..10) %>
+    </li>
+
+    <li>
+      <%= f.radio_button(:experience_type, "meal") %>
+      <%= f.label(:experience_type_meal, "Meal") %>
+      <%= f.radio_button(:experience_type, "cooking_class") %>
+      <%= f.label(:experience_type_cooking_class, "Cooking Class") %>
+      <%= f.radio_button(:experience_type, "market_tour_cooking_class_meal") %>
+      <%= f.label(:experience_type_meal, "Market Tour Cooking Class Meal") %>
+    </li>
+
+    <li>
+      <%= f.radio_button(:preferred_meal_time, "lunch") %>
+      <%= f.label(:preferred_meal_time_lunch, "Lunch") %>
+      <%= f.radio_button(:preferred_meal_time, "dinner") %>
+      <%= f.label(:preferred_meal_time_dinner, "Dinner") %>
+      <%= f.radio_button(:preferred_meal_time, "either") %>
+      <%= f.label(:preferred_meal_time_either, "Either") %>
+    </li>
+
+    <li>
+      <label>Allergies / Dietary Restrictions</label>
+      <%= f.radio_button(:has_dietary_restrictions, "Yes") %>
+      <%= f.label(:has_dietary_restrictions_yes, "Yes") %>
+      <%= f.radio_button(:has_dietary_restrictions, "No") %>
+      <%= f.label(:has_dietary_restrictions_no, "No") %>
+    </li>
+
+    <li>
+      <%= f.label :dietary_restrictions %>
+      <%= f.text_field :dietary_restrictions %>
+    </li>
+
+    <li>
+      <%= f.label :spice_preference %>
+      <%= f.select :spice_preference, ['Not Spicy', 'Mild', 'Spicy', 'Extra Spicy']%>
+    </li>
+
+    <li>
+      <label>Alcohol</label>
+      <%= f.radio_button(:wants_alcohol, "Yes") %>
+      <%= f.label(:wants_alcohol_yes, "Yes") %>
+      <%= f.radio_button(:wants_alcohol, "No") %>
+      <%= f.label(:wants_alcohol_no, "No") %>
+    </li>
+
+    <li>
+      <%= f.label :guests_drinking, 'How many are drinking?' %>
+      <%= f.select :guests_drinking, (0..10) %>
+    </li>
+
+  </ul>
+
+
+  <%= f.submit 'Submit' %>
+<%- end -%>

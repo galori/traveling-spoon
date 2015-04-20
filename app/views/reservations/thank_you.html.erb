@@ -1,0 +1,25 @@
+<p>Thank you for reservation. Here are the details</p>
+
+<ul>
+  <li>Country: <%=country_name(@reservation.country)%></li>
+  <li>City: <%=@reservation.city%></li>
+  <li>Date: <%=@reservation.date.to_s(:long)%></li>
+  <li>Additional Dates: <%=@reservation.additional_dates%></li>
+  <li>Number of Guests: <%=@reservation.number_of_guests%></li>
+  <li>Experience Type: <%=@reservation.experience_type.titleize%></li>
+  <li>Preferred Meal Time: <%=@reservation.preferred_meal_time.titleize%></li>
+
+  <li>
+    Allergy/Dietary Restrictions: <%=@reservation.has_dietary_restrictions%>
+    <%- if @reservation.has_dietary_restrictions == 'Yes' -%>
+       (Dietary Restrictions: <%=@reservation.dietary_restrictions%>)
+    <%- end -%>
+  </li>
+
+  <li>Spice Preference: <%=@reservation.spice_preference%></li>
+  <li>Alcohol: <%=@reservation.wants_alcohol%></li>
+
+  <%- if @reservation.wants_alcohol == 'Yes' -%>
+    <li><%=@reservation.guests_drinking%> 2 Guests Drinking Alcohol</li>
+  <%- end -%>
+</ul>
