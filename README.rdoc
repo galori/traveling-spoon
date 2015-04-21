@@ -25,3 +25,4 @@ Notes:
 
 * I'm assuming "Additional Dates" can be a text field for this excercize. I think a good implementation for that field for a real page would be something similar to facebook's topic selectors which populate as "capsules" in a field. (as seen here: http://loopj.com/images/tokeninput-facebook-style.png)
 
+* There are various things that I would structure differently or build differently for a larger application. I would make those changes as the application evolves and not right out of the gate. It is ideal to always write code and structure the project for what the project is "right now" and not what it may or may not be in the future.

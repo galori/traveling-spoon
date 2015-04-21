@@ -1,0 +1,26 @@
+
+body {
+  font-family: 'Raleway', sans-serif;
+  color: #6D6D6D;
+}
+
+.instructions {
+  color: #b8b8b8;
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 4em;
+}
+
+#submit-reservation {
+  background-color: #FFAE2B;
+  border: none;
+  color: #FEF1DF;
+  width: 162px;
+  height: 46px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+ul#thankyou-details li {
+  list-style-type: none;
+}

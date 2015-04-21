@@ -1,0 +1,33 @@
+// Traveling Spoon Orange is #FFAE2B;
+
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+.instructions {
+  color: #b8b8b8;
+  text-align: center;
+  margin-top: 54px;
+}
+
+.margin-label1 {
+  background-color: #F1F1F1;
+  width: 40px;
+  height: 100%;
+  float: left;
+  span {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    display: block;
+    color: #666;
+  }
+}
+
+.form-panel {
+  float: left;
+}
+
+.form-section {
+  clear: both;
+}

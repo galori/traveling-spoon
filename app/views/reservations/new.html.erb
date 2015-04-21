@@ -1,83 +1,172 @@
-<%= form_for Reservation.new do |f| -%>
-
-  <ul>
-
-    <li>
-      <%= f.label :country, 'Which country are you visiting?' %>
-      <%= f.country_select :country %>
-    </li>
-
-    <li>
-      <%= f.label :city, 'Which city are you visiting?' %>
-      <%= f.text_field :city %>
-    </li>
-
-    <li>
-      <%= f.label :date, 'Date' %>
-      <%= f.text_field :date %>
-    </li>
-
-    <li>
-      <%= f.label :additional_dates, 'Additional Dates' %>
-      <%= f.text_field :additional_dates %>
-    </li>
-
-    <li>
-      <%= f.label :number_of_guests, 'Number of Guests' %>
-      <%= f.select :number_of_guests, (0..10) %>
-    </li>
-
-    <li>
-      <%= f.radio_button(:experience_type, "meal") %>
-      <%= f.label(:experience_type_meal, "Meal") %>
-      <%= f.radio_button(:experience_type, "cooking_class") %>
-      <%= f.label(:experience_type_cooking_class, "Cooking Class") %>
-      <%= f.radio_button(:experience_type, "market_tour_cooking_class_meal") %>
-      <%= f.label(:experience_type_meal, "Market Tour Cooking Class Meal") %>
-    </li>
-
-    <li>
-      <%= f.radio_button(:preferred_meal_time, "lunch") %>
-      <%= f.label(:preferred_meal_time_lunch, "Lunch") %>
-      <%= f.radio_button(:preferred_meal_time, "dinner") %>
-      <%= f.label(:preferred_meal_time_dinner, "Dinner") %>
-      <%= f.radio_button(:preferred_meal_time, "either") %>
-      <%= f.label(:preferred_meal_time_either, "Either") %>
-    </li>
-
-    <li>
-      <label>Allergies / Dietary Restrictions</label>
-      <%= f.radio_button(:has_dietary_restrictions, "Yes") %>
-      <%= f.label(:has_dietary_restrictions_yes, "Yes") %>
-      <%= f.radio_button(:has_dietary_restrictions, "No") %>
-      <%= f.label(:has_dietary_restrictions_no, "No") %>
-    </li>
-
-    <li>
-      <%= f.label :dietary_restrictions %>
-      <%= f.text_field :dietary_restrictions %>
-    </li>
-
-    <li>
-      <%= f.label :spice_preference %>
-      <%= f.select :spice_preference, ['Not Spicy', 'Mild', 'Spicy', 'Extra Spicy']%>
-    </li>
-
-    <li>
-      <label>Alcohol</label>
-      <%= f.radio_button(:wants_alcohol, "Yes") %>
-      <%= f.label(:wants_alcohol_yes, "Yes") %>
-      <%= f.radio_button(:wants_alcohol, "No") %>
-      <%= f.label(:wants_alcohol_no, "No") %>
-    </li>
-
-    <li>
-      <%= f.label :guests_drinking, 'How many are drinking?' %>
-      <%= f.select :guests_drinking, (0..10) %>
-    </li>
-
-  </ul>
+<p class="instructions">
+  Fill out our concierge form and we will find the perfect host available to host you on your travel dates
+</p>
 
 
-  <%= f.submit 'Submit' %>
+<%= form_for Reservation.new, :html => {:class => 'form-horizontal'} do |f| -%>
+
+
+  <div class="form-group">
+    <%= f.label :country, 'Which country are you visiting?*', :class => 'col-sm-5 control-label' %>
+    <div class="col-sm-5">
+      <%= f.country_select :country, {}, {:class => 'form-control'} %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :city, 'Which city are you visiting?*', :class => "col-sm-5 control-label" %>
+    <div class="col-sm-5">
+      <%= f.text_field :city, :class => 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :date_label, 'Date*', :class => "col-sm-5 control-label" %>
+    <div class="col-sm-5">
+      <%= f.text_field :date, :class => 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :additional_dates, 'Additional Dates', :class => "col-sm-5 control-label" %>
+    <div class="col-sm-5">
+    <%= f.text_field :additional_dates, :class => 'form-control' %>
+    </div>
+  </div>
+
+
+  <!---- template ---->
+  <div class="form-group">
+    <div class="col-sm-5">
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :number_of_guests, 'Number of Guests', :class => "col-sm-5 control-label" %>
+    <div class="col-sm-5">
+      <%= f.select :number_of_guests, (0..10), {}, {:class => 'form-control'} %>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :experience_type, 'Experience Type', :class => "col-sm-5 control-label" %>
+    <div class="col-sm-5">
+      <div class="radio">
+        <%= f.label :experience_type_meal, "Meal", :class => 'radio-inline' do %>
+          <%= f.radio_button(:experience_type, "meal") %> Meal
+        <% end %>
+      </div>
+
+      <div class="radio">
+        <%= f.label :experience_type_cooking_class, "Cooking Class", :class => 'radio-inline' do %>
+          <%= f.radio_button(:experience_type, "cooking_class") %> Cooking Class
+        <% end %>
+      </div>
+
+      <div class="radio">
+        <%= f.label :experience_type_meal, "Market Tour Cooking Class Meal", :class => 'radio-inline' do %>
+          <%= f.radio_button(:experience_type, "market_tour_cooking_class_meal") %> Market Tour + Class + Meal
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :preferred_meal_time, 'Preferred Meal Time', :class => "col-sm-5 control-label" %>
+    <div class="col-sm-5">
+      <div class="radio">
+        <%= f.label :preferred_meal_time_lunch, "Lunch", :class => 'radio-inline' do %>
+          <%= f.radio_button(:preferred_meal_time, "lunch") %> Lunch
+        <% end %>
+      </div>
+
+      <div class="radio">
+        <%= f.label :preferred_meal_time_dinner, "Dinner", :class => 'radio-inline' do %>
+          <%= f.radio_button(:preferred_meal_time, "dinner") %> Dinner
+        <% end %>
+      </div>
+
+      <div class="radio">
+        <%= f.label :preferred_meal_time_either, "Either", :class => 'radio-inline' do %>
+          <%= f.radio_button(:preferred_meal_time, "either") %> Either
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :has_dietary_restrictions_label, 'Allergies / Dietary Restrictions', :class => "col-sm-5 control-label" %>
+    <div class="col-sm-5">
+      <div class="radio">
+        <%= f.label :has_dietary_restrictions_yes, "Yes", :class => 'radio-inline' do %>
+          <%= f.radio_button(:has_dietary_restrictions, "yes") %> Yes
+        <% end %>
+      </div>
+
+      <div class="radio">
+        <%= f.label :has_dietary_restrictions_no, "No", :class => 'radio-inline' do %>
+          <%= f.radio_button(:has_dietary_restrictions, "no") %> No
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :dietary_restrictions, 'Dietary Restrictions', :class => "col-sm-5 control-label" %>
+    <div class="col-sm-5">
+      <%= f.text_field :dietary_restrictions, :class => 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :spice_preference, 'Spice Preference', :class => "col-sm-5 control-label" %>
+    <div class="col-sm-5">
+      <%= f.select :spice_preference, ['Not Spicy', 'Mild', 'Spicy', 'Extra Spicy'], {}, {:class => 'form-control'} %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :wants_alcohol_label, 'Alcohol', :class => "col-sm-5 control-label" %>
+    <div class="col-sm-5">
+      <div class="radio">
+        <%= f.label :wants_alcohol_yes, "Yes", :class => 'radio-inline' do %>
+          <%= f.radio_button(:wants_alcohol, "yes") %> Yes
+        <% end %>
+      </div>
+
+      <div class="radio">
+        <%= f.label :wants_alcohol_no, "No", :class => 'radio-inline' do %>
+          <%= f.radio_button(:wants_alcohol, "no") %> No
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :guests_drinking, 'How many are drinking?', :class => "col-sm-5 control-label" %>
+    <div class="col-sm-5">
+      <%= f.select :guests_drinking, (0..10), {}, {:class => 'form-control'} %>
+    </div>
+  </div>
+
+  <p class="instructions">
+    Sign in to save your details and review and submit your reservation request
+  </p>
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-5 col-sm-7">
+      <%= f.submit 'Submit', :class => "btn btn-default", :id => 'submit-reservation' %>
+    </div>
+  </div>
+
+
+
 <%- end -%>

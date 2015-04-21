@@ -6,8 +6,11 @@ gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
-gem 'rspec-rails', group: [:development, :test]
 gem 'country_select'
+gem 'bootstrap-sass'
+
+
+gem 'rspec-rails', group: [:development, :test]
 
 group :test do
   gem 'capybara'
