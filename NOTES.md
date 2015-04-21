@@ -17,3 +17,5 @@ Notes
 * I saved the large background image sized to fit the width of the form (1050 pixels). Ideally there would be a Retina version too that would be served for retina displays. For the sake of saving time I only chose one and decided to err on the side of faster performance - avoiding downloading a huge image for non-retina displays just to show a retina image for those few retina users. (Despite really wanting to, and me being one of them).
 
 * The mockup looks overly large. I'm assuming this was a photoshop export error and the desire is not for huge text and huge fields.
+
+* The admin page would be under an /admin/ namespace in the app, and under authentication of course

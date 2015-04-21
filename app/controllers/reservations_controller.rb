@@ -16,6 +16,10 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
   end
 
+  def index
+    @reservations = Reservation.order('id')
+  end
+
 private
 
   def reservation_params

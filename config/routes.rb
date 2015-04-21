@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root :to => 'reservations#new'
 
-  resources :reservations, :only => :create do
+  resources :reservations, :only => [:create, :index] do
     member do
       get :thank_you
     end

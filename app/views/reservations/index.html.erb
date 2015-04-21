@@ -1,0 +1,46 @@
+<div class="well well-lg">
+
+  <table class="table table-bordered table-striped table-hover">
+
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>Country</th>
+        <th>City</th>
+        <th>Date</th>
+        <th>Additional Dates</th>
+        <th>Number of Guest</th>
+        <th>Experience Type</th>
+        <th>Preferred Meal Time</th>
+        <th>Dietary Restrictions?</th>
+        <th>Dietary Restrictions</th>
+        <th>Spice Preference</th>
+        <th>Alcohol?</th>
+        <th>Guests Drinking</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <% @reservations.each do |r| %>
+        <tr>
+          <td><%=country_name(r.country)%></td>
+          <td><%=r.city%></td>
+          <td><%=r.date.to_s(:long) rescue nil%></td>
+          <td><%=r.additional_dates%></td>
+          <td><%=r.number_of_guests%></td>
+          <td><%=r.experience_type.try(:titleize)%></td>
+          <td><%=r.preferred_meal_time.try(:titleize)%></td>
+          <td><%=r.has_dietary_restrictions%></td>
+          <td><%=r.dietary_restrictions%></td>
+          <td><%=r.spice_preference.try(:titleize)%></td>
+          <td><%=r.wants_alcohol.try(:titleize)%></td>
+          <td><%=r.guests_drinking%></td>
+        </tr>
+      <% end %>
+
+      </tbody>
+    </table>
+
+  </table>
+
+</div>
